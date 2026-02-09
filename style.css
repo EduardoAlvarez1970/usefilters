@@ -5,6 +5,7 @@
 
 body {
   font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.5;
   background-color: #0e0e0e;
   color: #e5e5e5;
   margin: 0;
@@ -31,7 +32,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 16px;
+  margin-top: 20px;
   font-weight: 300;
   letter-spacing: 0.03em;
   opacity: 0.6;
@@ -86,7 +87,8 @@ hr {
   text-decoration: none;
   color: #e5e5e5;
   opacity: 0.7;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  font-weight: 400;
   transition: opacity 0.2s ease, transform 0.2s ease;
   display: inline-block;
 }
