@@ -44,7 +44,10 @@ p {
   letter-spacing: 0.02em;
 }
 
-
+.about p {
+  max-width: 560px;   /* más editorial */
+  line-height: 1.6;   /* más lectura */
+}
 
 hr {
   border: none;
@@ -52,9 +55,24 @@ hr {
   margin: 80px 0;
 }
 
-.about p {
-  max-width: 560px;   /* más editorial */
-  line-height: 1.6;   /* más lectura */
+/* CREDIT : a project by... */
+.project {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  opacity: 0.5;
+}
+
+.project a {
+  color: #e5e5e5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(229, 229, 229, 0.3);
+  transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.project a:hover {
+  opacity: 1;
+  border-color: rgba(229, 229, 229, 0.7);
 }
 
 .sections {
