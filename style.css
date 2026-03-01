@@ -133,3 +133,32 @@ footer {
   }
 }
 
+/* ######################################## */
+/* SECCION WRITING */
+
+.writing-section {
+  margin-top: 90px;
+}
+
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.writing-list a {
+  text-decoration: none;
+  color: #e5e5e5;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  opacity: 0.75;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.writing-list a:hover {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+
