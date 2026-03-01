@@ -161,4 +161,76 @@ footer {
   transform: translateX(4px);
 }
 
+.review-cover {
+  margin-top: 60px;
+}
+
+.review-cover img {
+  width: 100%;
+  max-width: 420px;
+  display: block;
+}
+
+.review-content {
+  margin-top: 60px;
+  max-width: 560px;
+}
+
+.rating-section {
+  margin-top: 60px;
+}
+
+.rating-box {
+  margin-top: 24px;
+  opacity: 0.85;
+}
+
+.rating-box select {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #e5e5e5;
+  padding: 6px 10px;
+  font-family: inherit;
+}
+
+.average-score {
+  margin-top: 16px;
+  opacity: 0.6;
+}
+
+.comments-section {
+  margin-top: 60px;
+}
+
+.comments-section summary {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.comments-list {
+  margin-top: 24px;
+}
+
+.comment-form {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.comment-form textarea {
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #e5e5e5;
+  padding: 12px;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.comment-form button {
+  all: unset;
+  cursor: pointer;
+  opacity: 0.7;
+}
 
