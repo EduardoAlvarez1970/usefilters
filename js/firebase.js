@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 import { 
   collection, 
-  addDoc 
+  addDoc,
+  onSnapshot 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Your config
@@ -48,8 +49,36 @@ if (ratingSelect) {
   });
 }
 
+const averageElement = document.getElementById("averageScore");
+
+if (averageElement) {
+
+  const ratingsRef = collection(db, "reviews", reviewId, "ratings");
+
+  onSnapshot(ratingsRef, (snapshot) => {
+
+    let total = 0;
+    let count = 0;
+
+    snapshot.forEach((doc) => {
+      total += doc.data().score;
+      count++;
+    });
+
+    if (count === 0) {
+      averageElement.textContent = "No ratings yet";
+      return;
+    }
+
+    const average = total / count;
+
+    averageElement.textContent = 
+      average.toFixed(1) + " / 10 (" + count + " ratings)";
+  });
+
+}
+
 // Export database
 export { db };
 
 
-console.log("Firebase connected:", db);
