@@ -7,6 +7,8 @@ import {
   onSnapshot 
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+const messageElement = document.getElementById("ratingMessage");
+
 // Your config
 const firebaseConfig = {
   apiKey: "AIzaSyCaCtYv6CmMnaezDMQC-zX1jAd7yf5Hovk",
@@ -27,26 +29,54 @@ const reviewId = "autechre-elseq";
 const ratingSelect = document.getElementById("userRating");
 
 if (ratingSelect) {
-  ratingSelect.addEventListener("change", async () => {
-    const value = ratingSelect.value;
+    const storageKey = "voted-" + reviewId;
 
-    if (!value) return;
+// Si ya votó, deshabilitamos
+if (localStorage.getItem(storageKey)) {
+  ratingSelect.disabled = true;
+  ratingSelect.value = localStorage.getItem(storageKey);
+}
+if (messageElement) {
+  messageElement.textContent = "Thanks for rating.";
+}
 
-    try {
-      await addDoc(
-        collection(db, "reviews", reviewId, "ratings"),
-        {
-          score: parseFloat(value),
-          createdAt: new Date()
-        }
-      );
+ratingSelect.addEventListener("change", async () => {
 
-      console.log("Rating saved:", value);
+  if (localStorage.getItem(storageKey)) {
+    return;
+  }
 
-    } catch (error) {
-      console.error("Error saving rating:", error);
-    }
-  });
+  const value = ratingSelect.value;
+
+  if (!value) return;
+
+  try {
+
+    await addDoc(
+      collection(db, "reviews", reviewId, "ratings"),
+      {
+        score: parseFloat(value),
+        createdAt: new Date()
+      }
+    );
+
+    // Guardamos que ya votó
+    localStorage.setItem(storageKey, value);
+
+    ratingSelect.disabled = true;
+
+    console.log("Rating saved:", value);
+
+  } catch (error) {
+    console.error("Error saving rating:", error);
+  }
+
+  if (messageElement) {
+  messageElement.textContent = "Thanks for rating.";
+}
+
+});
+  
 }
 
 const averageElement = document.getElementById("averageScore");

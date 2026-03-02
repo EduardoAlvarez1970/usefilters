@@ -199,6 +199,17 @@ footer {
   opacity: 0.6;
 }
 
+.rating-message {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+
+
+
+/*COMMENTS*/
 .comments-section {
   margin-top: 60px;
 }
