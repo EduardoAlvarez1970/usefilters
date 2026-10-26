@@ -155,22 +155,41 @@
 
     <hr>
 
-    <!-- COMMENTS -->
-    <section class="comments-section">
-      <details>
-        <summary>View comments (3)</summary>
+      
+<!-- COMMENTS -->
+<section class="comments-section">
+  <details>
+    <summary id="commentsSummary">View comments (Loading...)</summary>
 
-        <div class="comments-list">
-          <p><strong>Alex:</strong> Incredible textures and depth.</p>
-          <p><strong>Marie:</strong> Difficult but rewarding.</p>
-        </div>
+    <div class="comments-list" id="commentsList">
+      <p>Loading comments...</p>
+    </div>
 
-        <form class="comment-form">
-          <textarea placeholder="Write a comment"></textarea>
-          <button type="submit">Post</button>
-        </form>
-      </details>
-    </section>
+    <form class="comment-form" id="commentForm">
+      <label for="commentName">Your name or nickname</label>
+      <input
+        type="text"
+        id="commentName"
+        maxlength="40"
+        placeholder="Name or nickname"
+        required
+      >
+
+      <label for="commentText">Your comment</label>
+      <textarea
+        id="commentText"
+        maxlength="1000"
+        placeholder="Write a constructive comment..."
+        required
+      ></textarea>
+
+      <button type="submit" id="commentSubmit">Post</button>
+
+      <p id="commentMessage" aria-live="polite"></p>
+    </form>
+  </details>
+</section>
+
 
     <footer>
       © Eduardo Alvarez
